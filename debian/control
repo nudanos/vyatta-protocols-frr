@@ -1,10 +1,9 @@
 Source: vyatta-protocols-frr
-Section: contrib/net
+Section: net
 Priority: optional
-Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
-Build-Depends:
+Maintainer: NuDanOS Maintainers <jon@fernandez.tech>
+Build-Depends: debhelper-compat (= 13),
  config-package-dev,
- debhelper (>= 9.20160709~),
  dh-golang,
  dh-python,
  dh-vci,
@@ -13,7 +12,10 @@ Build-Depends:
  golang-github-hashicorp-go-multierror-dev,
  golang-vyatta-protocols-dev (>= 1.14.0),
  python3
-Standards-Version: 3.9.8
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/nudanos/vyatta-protocols-frr.git
+Vcs-Browser: https://github.com/nudanos/vyatta-protocols-frr
 
 Package: vyatta-protocols-frr
 Provides: vyatta-protocols
@@ -21,7 +23,7 @@ Conflicts: vyatta-protocols-ipi
 Breaks: vyatta-protocols (<< 1.12.0), frr (<< 7.3.1-0vyatta4)
 Replaces: vyatta-protocols (<< 1.12.0), frr (<< 7.3.1-0vyatta4)
 Architecture: all
-Depends:
+Depends: 
  frr (>= 7.5-0danos1),
  frr-snmp,
  vyatta-protocols-common,
@@ -49,7 +51,7 @@ Description: Zebra operational YANG module
 
 Package: vyatta-op-protocols-frr-bgp-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-op-common-protocols-bgp-v1-yang,
  ${misc:Depends},
  ${yang:Depends}
@@ -58,7 +60,7 @@ Description: BGP operational YANG module
 
 Package: vyatta-policy-route-deviation-danos-v1-yang
 Architecture: all
-Depends:
+Depends: 
  ${misc:Depends},
  ${yang:Depends}
 Description: DANOS specific routing policy module
@@ -66,7 +68,7 @@ Description: DANOS specific routing policy module
 
 Package: vyatta-op-protocols-frr-bgp-routing-instance-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-op-common-protocols-bgp-routing-instance-v1-yang,
  ${misc:Depends},
  ${yang:Depends}
@@ -76,7 +78,7 @@ Description: BGP routing instance operational YANG module
 Package: vyatta-protocols-frr-bgp-v1-yang
 Architecture: all
 Pre-Depends: frr
-Depends:
+Depends: 
  vyatta-cfg (>= 0.18.56),
  vyatta-frr-vci,
  vyatta-protocols-frr (>= ${source:Version}),
@@ -95,13 +97,12 @@ Description: BGP Yang module which supports Routing Instance
 
 Package: vyatta-frr-vci
 Architecture: any
-Priority: optional
 Pre-Depends: adduser
 Depends: frr-pythontools (>= 7.3.1-0vyatta3),
  python3 (>= 3.6),
  ${misc:Depends},
  ${shlibs:Depends}
-Conflicts:
+Conflicts: 
  vyatta-bgp-vci,
  vyatta-ospf-vci,
  vyatta-policy-route-vci,
@@ -113,7 +114,7 @@ Description: FRR Service
 
 Package: vyatta-op-protocols-frr-ospf-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-op-common-protocols-ospf-v1-yang,
  ${misc:Depends},
  ${yang:Depends}
@@ -122,7 +123,7 @@ Description: OSPF operational YANG module
 
 Package: vyatta-op-protocols-frr-ospf-routing-instance-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-op-common-protocols-ospf-routing-instance-v1-yang,
  ${misc:Depends},
  ${yang:Depends}
@@ -131,7 +132,7 @@ Description: OSPF routing instance operational YANG module
 
 Package: vyatta-protocols-frr-ospf-v1-yang
 Architecture: all
-Depends:
+Depends: 
  frr,
  vyatta-cfg (>= 0.18.56),
  vyatta-frr-vci,
@@ -144,7 +145,7 @@ Description: FRR ospf yang module package
 
 Package: vyatta-protocols-frr-ospf-routing-instance-v1-yang
 Architecture: all
-Depends:
+Depends: 
  frr,
  vyatta-cfg (>= 0.18.56),
  vyatta-frr-vci,
@@ -162,7 +163,7 @@ Description: switch VLAN ospf yang module package
 
 Package: vyatta-op-protocols-frr-ospfv3-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-op-common-protocols-ospfv3-v1-yang,
  ${misc:Depends},
  ${yang:Depends}
@@ -171,7 +172,7 @@ Description: OSPFv3 operational YANG module
 
 Package: vyatta-protocols-frr-ospfv3-v1-yang
 Architecture: all
-Depends:
+Depends: 
  frr,
  vyatta-cfg (>= 0.18.56),
  vyatta-frr-vci,
@@ -196,7 +197,7 @@ Description: LDP operational YANG module
 
 Package: vyatta-protocols-frr-ldp-v1-yang
 Architecture: all
-Depends:
+Depends: 
  frr,
  vyatta-cfg (>= 0.18.56),
  vyatta-frr-vci,
@@ -213,10 +214,9 @@ Depends: ${misc:Depends}, ${yang:Depends}
 Description: ISIS operational YANG module
  The YANG module package for vyatta-op-frr-isis-v1-yang
 
-
 Package: vyatta-protocols-frr-isis-v1-yang
 Architecture: all
-Depends:frr,
+Depends: frr,
 	vyatta-cfg (>= 0.18.56),vyatta-frr-vci,
 	vyatta-protocols-frr (>= ${source:Version}),
 	${misc:Depends},
@@ -227,7 +227,7 @@ Description: FRR ISIS yang module package
 
 Package: vyatta-protocols-frr-next-hop-v1-yang
 Architecture: all
-Depends:
+Depends: 
  frr,
  vyatta-cfg (>= 0.18.56),
  vyatta-frr-vci,
@@ -239,7 +239,7 @@ Description: FRR next hop parameters YANG package
 
 Package: vyatta-protocols-frr-next-hop-routing-instance-v1-yang
 Architecture: all
-Depends:
+Depends: 
  frr,
  vyatta-cfg (>= 0.18.56),
  vyatta-frr-vci,
