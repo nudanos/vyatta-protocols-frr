@@ -1,3 +1,10 @@
+vyatta-protocols-frr (1.15.5) trixie; urgency=medium
+
+  * vyatta-frr-vci: prerm removes the bytecode postinst leaves; postrm purge
+    removes the generated /etc/vyatta-routing/frr.conf.
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Fri, 02 Oct 2026 13:11:54 -0700
+
 vyatta-protocols-frr (1.15.4) trixie; urgency=medium
 
   * Port to Debian 13 (trixie): debhelper-compat 13, Standards-Version 4.7.2, Rules-Requires-Root, NuDanOS Vcs.

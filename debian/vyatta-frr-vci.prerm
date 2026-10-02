@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+case "$1" in
+    remove|upgrade|deconfigure)
+        # bytecode of our module, written when postinst ran parser.py; removed
+        # before dpkg removes the package's directories
+        rm -f /usr/lib/python3/dist-packages/vyatta/__pycache__/command.cpython-*.pyc
+        ;;
+esac
+#DEBHELPER#
+exit 0
