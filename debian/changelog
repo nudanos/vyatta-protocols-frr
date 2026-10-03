@@ -1,3 +1,10 @@
+vyatta-protocols-frr (1.15.6) trixie; urgency=medium
+
+  * daemons: zebra no longer loads the FPM module; under kernel forwarding
+    it only retried a connection to the absent DPDK controller every 3 s.
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Sat, 03 Oct 2026 12:09:16 -0700
+
 vyatta-protocols-frr (1.15.5) trixie; urgency=medium
 
   * vyatta-frr-vci: prerm removes the bytecode postinst leaves; postrm purge
