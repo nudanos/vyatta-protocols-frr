@@ -2,9 +2,7 @@
     {
         "config": [
             "log syslog",
-            "zebra nexthop kernel enable",
-            "fpm address 127.0.0.1",
-            "no fpm use-next-hop-groups"
+            "zebra nexthop kernel enable"
         ],
         "translate": ["static.json"]
     },

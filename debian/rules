@@ -22,8 +22,12 @@ GO_BUILD_DIR = golang_build
 	dh $@ --with config_package,yang,python3 \
 	      --no-package vyatta-frr-vci              
 
-override_dh_auto_build: vet
+override_dh_auto_build: vet fpm-check
 	dh_auto_build
+
+# frr.conf must not configure FPM while zebra does not load dplane_fpm_nl
+fpm-check:
+	sh tests/fpm-consistent.sh
 
 # We do not vet vendor code
 vet:

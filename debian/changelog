@@ -1,3 +1,11 @@
+vyatta-protocols-frr (1.15.7) trixie; urgency=medium
+
+  * Stop configuring zebra's FPM, whose module kernel forwarding no longer
+    loads; frr-reload failed on every routing commit. A build check keeps
+    steps.json and daemons.danos consistent
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Mon, 05 Oct 2026 15:21:34 -0700
+
 vyatta-protocols-frr (1.15.6) trixie; urgency=medium
 
   * daemons: zebra no longer loads the FPM module; under kernel forwarding
