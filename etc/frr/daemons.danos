@@ -13,6 +13,10 @@ ldpd=yes
 
 # NuDanOS 1.0 forwards in the kernel, which zebra programs directly; the FPM
 # module (-M dplane_fpm_nl) only fed the DPDK controller. Milestone 2 restores it.
+# NuDanOS: watchfrr starts the daemons itself and kills a restart that
+# runs past its restart timeout (90 s by default); on a slow machine that
+# killed the start and the boot commit's FRR step never returned.
+watchfrr_options="-T 600"
 zebra_options="  -A 127.0.0.1 -s 90000000"
 bgpd_options="   -A 127.0.0.1"
 isisd_options="  -A 127.0.0.1"

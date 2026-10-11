@@ -28,11 +28,12 @@ override_dh_auto_build: vet fpm-check
 # frr.conf must not configure FPM while zebra does not load dplane_fpm_nl
 fpm-check:
 	sh tests/fpm-consistent.sh
+	sh tests/watchfrr-restart-timeout.sh
 
-# We do not vet vendor code
+# NuDanOS: vet every Go package, vendored code included
 vet:
 	GOPATH=$(CURDIR)/$(GO_BUILD_DIR) go vet $$(find . -type f -name \*.go | \
-	xargs dirname | sort -u | grep -v "/vendor/");
+	xargs dirname | sort -u);
 
 override_dh_installsystemd:
 	dh_installsystemd -p vyatta-protocols-frr vyatta-routing-frr-early.target

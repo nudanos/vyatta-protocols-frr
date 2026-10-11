@@ -1,3 +1,11 @@
+vyatta-protocols-frr (1.15.8) trixie; urgency=medium
+
+  * daemons.danos: watchfrr_options "-T 600": FRR 10's watchfrr starts the
+    daemons itself and killed a start that ran past 90 s on a slow machine;
+    the boot commit's FRR step then never returned.
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Sun, 11 Oct 2026 08:55:49 -0700
+
 vyatta-protocols-frr (1.15.7) trixie; urgency=medium
 
   * Stop configuring zebra's FPM, whose module kernel forwarding no longer
